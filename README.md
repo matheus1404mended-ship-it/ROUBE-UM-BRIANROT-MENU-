@@ -1,5 +1,5 @@
 -- 🌈 HUB ESTILOSO E ANIMADO COM VERIFICAÇÃO DE NICK 🌈
--- Apenas mendes24135, davizinho221111 e Icjhdiie podem usar
+-- Apenas mendes24135, davizinho221111 e lcjhdiie podem usar
 -- LocalScript → StarterGui
 
 local Players = game:GetService("Players")
