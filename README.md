@@ -11,7 +11,7 @@ local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 local allowed = {
 	["mendes24135"] = true,
 	["davizinho221111"] = true,
-	["icjhdiie"] = true,
+	["lcjhdiie"] = true,
 }
 
 if not allowed[string.lower(LocalPlayer.Name or "")] then
