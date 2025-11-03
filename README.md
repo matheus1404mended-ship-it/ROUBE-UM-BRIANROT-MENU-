@@ -1,5 +1,5 @@
 -- 🌈 HUB ESTILOSO E ANIMADO COM VERIFICAÇÃO DE NICK 🌈
--- Apenas mendes24135, davizinho221111 e lcjhdiie podem usar
+-- Apenas mendes24135, davizinho221111 e Lcjhdiie podem usar
 -- LocalScript → StarterGui
 
 local Players = game:GetService("Players")
@@ -7,14 +7,24 @@ local TweenService = game:GetService("TweenService")
 local LocalPlayer = Players.LocalPlayer
 local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 
--- 🔒 Checagem de permissão
-local allowed = {
-	["mendes24135"] = true,
-	["davizinho221111"] = true,
-	["lcjhdiie"] = true,
+-- 🔒 Checagem de permissão elegante
+local allowedNames = {
+	"mendes24135",
+	"davizinho221111",
+	"lcjhdiie",
 }
 
-if not allowed[string.lower(LocalPlayer.Name or "")] then
+local function isAllowed(playerName)
+	local lowerName = string.lower(playerName or "")
+	for _, name in ipairs(allowedNames) do
+		if lowerName == string.lower(name) then
+			return true
+		end
+	end
+	return false
+end
+
+if not isAllowed(LocalPlayer.Name) then
 	LocalPlayer:Kick("🚫 Você não está autorizado a usar este hub.")
 	return
 end
@@ -92,7 +102,7 @@ local BodyCorner = Instance.new("UICorner")
 BodyCorner.CornerRadius = UDim.new(0, 14)
 BodyCorner.Parent = Body
 
--- 🧭 Criar botões
+-- 🧭 Função para criar botões
 local function criarBotao(texto, ordem, callback)
 	local botao = Instance.new("TextButton")
 	botao.Size = UDim2.new(0, 230, 0, 35)
