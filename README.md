@@ -1,5 +1,5 @@
 -- 🌈 HUB ESTILOSO E ANIMADO COM VERIFICAÇÃO DE NICK 🌈
--- Apenas mendes24135 e davizinho221111 podem usar
+-- Apenas mendes24135, davizinho221111 e Icjhdiie podem usar
 -- LocalScript → StarterGui
 
 local Players = game:GetService("Players")
@@ -11,6 +11,7 @@ local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 local allowed = {
 	["mendes24135"] = true,
 	["davizinho221111"] = true,
+	["icjhdiie"] = true,
 }
 
 if not allowed[string.lower(LocalPlayer.Name or "")] then
@@ -37,9 +38,8 @@ local Corner = Instance.new("UICorner")
 Corner.CornerRadius = UDim.new(0, 14)
 Corner.Parent = MainFrame
 
--- ✨ Efeito de sombra
+-- ✨ Sombra
 local Shadow = Instance.new("ImageLabel")
-Shadow.Name = "Shadow"
 Shadow.Image = "rbxassetid://1316045217"
 Shadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
 Shadow.ImageTransparency = 0.5
@@ -92,7 +92,7 @@ local BodyCorner = Instance.new("UICorner")
 BodyCorner.CornerRadius = UDim.new(0, 14)
 BodyCorner.Parent = Body
 
--- 🧭 Função criar botões
+-- 🧭 Criar botões
 local function criarBotao(texto, ordem, callback)
 	local botao = Instance.new("TextButton")
 	botao.Size = UDim2.new(0, 230, 0, 35)
@@ -180,7 +180,6 @@ MinimizeButton.MouseButton1Click:Connect(function()
 		TweenService:Create(Body, TweenInfo.new(0.3), {BackgroundTransparency = 0}):Play()
 		TweenService:Create(TitleBar, TweenInfo.new(0.3), {BackgroundColor3 = Color3.fromRGB(60, 0, 100)}):Play()
 
-		-- brilho rápido ao restaurar
 		local glow = Instance.new("ImageLabel")
 		glow.Image = "rbxassetid://200182847"
 		glow.BackgroundTransparency = 1
